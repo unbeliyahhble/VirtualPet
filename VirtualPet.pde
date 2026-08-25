@@ -29,8 +29,8 @@ void draw() {
   bezier(25+x, 0+y, 5+x, 35+y, 0+x, 35+y, 0+x, 50+y); 
   
   //left ear 
-  int x2 = 110; 
-  int y2 = 140; 
+  int x2 = 105; 
+  int y2 = 145; 
   stroke(0, 0, 0); 
   fill(0, 0, 0); 
   bezier(0+x2, 0+y2, 25+x2, 5+y2, 20+x2, 5+y2, 55+x2, 20+y2); 
@@ -44,5 +44,37 @@ void draw() {
   ellipse(200, 255, 15, 15); 
   triangle(0+x3, 0+y3, 20+x3, 10+y3, 0+x3, 20+y3); 
   triangle(400-x3, 0+y3, 380-x3, 10+y3, 400-x3, 20+y3); 
+  
+  
+  ////left droplet 
+  //int x4 = 172; //173 -> 2
+  //int y4 = 148; //146 -> 148
+  //noStroke(); 
+  //fill(0, 0, 0); 
+  //ellipse(1+x4, 3+y4, 4, 4); 
+  //stroke(0, 0, 0); 
+  //bezier(0+x4, 0+y4, 10+x4, 3+y4, 9+x4, 6+y4, 9+x4, 6+y4); 
+  //noFill(); 
+  //bezier(0+x4, 4+y4, 8+x4, 3+y4, 10+x4, 4+y4, 9+x4, 6+y4); 
+  ////middle droplet
+  //x4 = 180; 
+  //y4 = 141; 
+  //noStroke(); 
+  //fill(0, 0, 0); 
+  //ellipse(0+x4, 3+y4, 4, 4); 
+  //stroke(0, 0, 0); 
+  //bezier(0+x4, 2+y4, 4+x4, 0+y4, 6+x4, 4+y4, 8+x4, 9+y4); 
+  //noFill(); 
+  //bezier(0+x4, 4+y4, 7+x4, 5+y4, 8+x4, 6+y4, 8+x4, 9+y4); 
+  ////left droplet
+  //x4 = 193; 
+  //y4 = 142; 
+  //noStroke(); 
+  //fill(0, 0, 0); 
+  //ellipse(8+x4, 4+y4, 5, 4); 
+  //stroke(0, 0, 0); 
+  //bezier(0+x4, 9+y4, 2+x4, 4+y4, 4+x4, 0+y4, 8+x4, 2+y4); 
+  //noFill(); 
+  //bezier(0+x4, 9+y4, 0+x4, 6+y4, 1+x4, 5+y4, 8+x4, 4+y4); 
   
 } 
