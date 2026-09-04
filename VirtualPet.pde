@@ -1,48 +1,73 @@
+import processing.serial.*; 
+import cc.arduino.*; 
+Arduino arduino; 
+
 void setup() { 
   size(400, 400); 
   background(216, 235, 255); 
+  arduino = new Arduino(this, Arduino.list()[0], 57600); 
 } 
 
 void draw() { 
   
+  background(216, 235, 255); 
+
+  int one = arduino.analogRead(1); 
+  int six = arduino.analogRead(6); 
+  
+  color c; 
+  if (one > 1000 && six > 1000) {
+    c = color(160, 0, 255); 
+  } else if (six > 1000) {
+    c = color(0, 0, 255); 
+  } else if (one > 1000) {
+    c = color(0, 255, 0); 
+  } else {
+    c = color(255, 0, 0); 
+  }
+
   //face 
+  int x = 175; 
+  int y = 220; 
   noStroke(); 
   fill(255, 255, 255); 
-  ellipse(200, 200, 100, 100); 
-  ellipse(175, 230, 80, 50); 
-  ellipse(225, 230, 80, 50); 
-  ellipse(200, 232, 130, 50); 
+  ellipse(25+x, 0+y, 100, 100); 
+  ellipse(0+x, 30+y, 80, 50); 
+  ellipse(50+x, 30+y, 80, 50); 
+  ellipse(25+x, 32+y, 130, 50); 
   
   //eyes & nose 
+  x = 175; 
+  y = 230; 
   noStroke(); 
   fill(0, 0, 0); 
-  ellipse(175, 210, 10, 13); 
-  ellipse(225, 210, 10, 13); 
-  ellipse(200, 220, 13, 10); 
+  ellipse(0+x, 0+y, 10, 13); 
+  ellipse(50+x, 0+y, 10, 13); 
+  ellipse(25+x, 10+y, 13, 10); 
    
   //right ear 
-  int x = 225; 
-  int y = 105; 
+  x = 225; 
+  y = 125; 
   stroke(0, 0, 0); 
   fill(0, 0, 0); 
   bezier(25+x, 0+y, 25+x, 35+y, 20+x, 35+y, 0+x, 50+y); 
   bezier(25+x, 0+y, 5+x, 35+y, 0+x, 35+y, 0+x, 50+y); 
   
   //left ear 
-  int x2 = 105; 
-  int y2 = 145; 
+  x = 105; 
+  y = 165; 
   stroke(0, 0, 0); 
   fill(0, 0, 0); 
-  bezier(0+x2, 0+y2, 25+x2, 5+y2, 20+x2, 5+y2, 55+x2, 20+y2); 
-  bezier(0+x2, 0+y2, 10+x2, 20+y2, 20+x2, 15+y2, 55+x2, 20+y2); 
+  bezier(0+x, 0+y, 25+x, 5+y, 20+x, 5+y, 55+x, 20+y); 
+  bezier(0+x, 0+y, 10+x, 20+y, 20+x, 15+y, 55+x, 20+y); 
   
   //bow 
-  int x3 = 180; 
-  int y3 = 243; 
+  x = 180; 
+  y = 263; 
   noStroke(); 
-  fill(255, 0, 0); 
-  ellipse(200, 255, 15, 15); 
-  triangle(0+x3, 0+y3, 20+x3, 10+y3, 0+x3, 20+y3); 
-  triangle(400-x3, 0+y3, 380-x3, 10+y3, 400-x3, 20+y3); 
+  fill(c); 
+  ellipse(200, 8+y, 15, 15); 
+  triangle(0+x, 0+y, 20+x, 10+y, 0+x, 20+y); 
+  triangle(400-x, 0+y, 380-x, 10+y, 400-x, 20+y); 
   
 } 
